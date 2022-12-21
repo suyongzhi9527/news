@@ -106,13 +106,11 @@ function str_to_date(str) {
         const year = date_str.split('年')[0];
         const month = date_str.split('年')[1].split('月')[0];
         const day = date_str.split('月')[1].split('日')[0];
-        const cache = `${year}-${month}-${day}`;
-        return cache;
+        return `${year}-${month}-${day}`;
     } catch (error) {
         const month = date_str.split('月')[0];
         const day = date_str.split('月')[1].split('日')[0];
-        const cache = `${month}-${day}`;
-        return cache;
+        return `${month}-${day}`;
     }
 }
 
@@ -268,9 +266,8 @@ function bing_load(index) {
         index_num = index;
     }
     // 加载 bing
-    const bing_url = "https://cn.bing.com" + bing_data["data"][index_num]["url"];
     // 加载图片
-    document.getElementById('bing').src = bing_url;
+    document.getElementById('bing').src = "https://cn.bing.com" + bing_data["data"][index_num]["url"];
 
 }
 
@@ -317,14 +314,14 @@ function before() {
 document.onkeydown = change_page;
 
 function change_page() {
-    if (event.keyCode == 37 || event.keyCode == 33) {
+    if (event.keyCode === 37 || event.keyCode === 33) {
         before();
-    } else if (event.keyCode == 39 || event.keyCode == 34) {
+    } else if (event.keyCode === 39 || event.keyCode === 34) {
         after();
     }
-    ;
+
     // 回车键
-    if (event.keyCode == 13) {
+    if (event.keyCode === 13) {
         if (origin === 'zhihu') {
             origin = '163';
         } else {
